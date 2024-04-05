@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carousel dengan JavaScript DOM</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* Gaya untuk mengatur lebar maksimum slider */
+  .slider {
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Gaya untuk mengatur gambar dalam slider */
+  .slider div {
+    display: none;
+  }
+  
+  .slider div.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+      <h1 class="logo">Organisasi Kampus</h1>
+      <ul class="nav-links">
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Acara</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+      <h1>Selamat Datang di Organisasi Kampus</h1>
+      <p>Daftarkan dirimu sekarang untuk menjadi bagian dari komunitas kami!</p>
+      <a href="form.html" class="btn">Daftar Sekarang</a>
+      <a href="jsdasar.html" class="btn">JSDasar</a>
+    </div>
+</section>
+  
+<section class="carousel">
+    <div class="slider">
+        <div class="active"><img src="assets/picture/a.jfif" alt="Slide 1"></div>
+        <div><img src="assets/picture/b.jfif" alt="Slide 2"></div>
+        <div><img src="assets/picture/c.jfif" alt="Slide 3"></div>
+    </div>
+    <button class="prev-button">Previous</button>
+    <button class="next-button">Next</button>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const slider = document.querySelector('.slider');
+        const slides = slider.querySelectorAll('div');
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+
+        // Fungsi untuk menampilkan slide berikutnya
+        function showNextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slides[currentIndex].classList.add('active');
+        }
+
+        // Fungsi untuk menampilkan slide sebelumnya
+        function showPrevSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            slides[currentIndex].classList.add('active');
+        }
+
+        // Set interval untuk otomatis berganti slide setiap beberapa detik
+        const interval = setInterval(showNextSlide, 5000); // Ganti slide setiap 5 detik
+
+        // Tambahkan event listener untuk tombol next dan previous jika ada
+        const nextButton = document.querySelector('.next-button');
+        const prevButton = document.querySelector('.prev-button');
+
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                clearInterval(interval); // Hentikan interval saat tombol next ditekan
+                showNextSlide();
+            });
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                clearInterval(interval); // Hentikan interval saat tombol previous ditekan
+                showPrevSlide();
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

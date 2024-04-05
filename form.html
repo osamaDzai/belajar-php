@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="assets/css/form.css" />
+    
+  </head>
+  <body>
+    <section class="container">
+      <header>Registration Form</header>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>Nama</label>
+          <input type="text" placeholder="Masukkan Nama" required />
+        </div>
+
+        <div class="input-box">
+          <label>Email</label>
+          <input type="text" placeholder="Masukkan Email" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>No HP</label>
+            <input type="number" placeholder="Masukkan No HP" required />
+          </div>
+          
+        </div>
+        <div class="gender-box">
+          <h3>Jenis Kelamin</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="gender" checked />
+              <label for="check-male">Laki-laki</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" />
+              <label for="check-female">Perempuan</label>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="select-box">
+            <select>
+              <option hidden>Prodi</option>
+              <option value="">Teknik Informatika</option>
+              <option value="">Sistem Informasi</option>
+              <option value="">Teknik Komputer</option>
+              <option value="">Ilmu Komunikasi</option>
+              <option value="">Hubungan International</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="column hobbies">
+          <h3>Hobi</h3>
+          <div class="hobby-option">
+            <div class="hobby">
+              <input type="checkbox" id="reading" name="hobbies" />
+              <label for="reading">Membaca</label>
+            </div>
+            <div class="hobby">
+              <input type="checkbox" id="writing" name="hobbies" />
+              <label for="reading">Menulis</label>
+            </div>
+            <div class="hobby">
+              <input type="checkbox" id="singing" name="hobbies" />
+              <label for="reading">Menyanyi</label>
+            </div>
+            <div class="hobby">
+              <input type="checkbox" id="sports" name="hobbies" />
+              <label for="reading">Olahraga</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Alamat</label>
+          <textarea placeholder="Masukkan Alamat" required></textarea>
+        </div>
+        <div class="input-box file">
+          <label for="file">Foto Diri</label>
+          <input type="file" id="file"/>
+        </div>
+        <button id="registerButton"><a href="index.html">Daftar</a></button>
+      </form>
+    </section>
+
+   <script src="assets/javascript/script.js"></script>
+  </body>
+</html>
